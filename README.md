@@ -123,3 +123,4 @@ To learn more about React Native, take a look at the following resources:
   }
 
   export default jest.fn(() => socket);# jest-chatting-app-client
+# jest-chatting-app-server
