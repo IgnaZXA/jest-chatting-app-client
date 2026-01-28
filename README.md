@@ -95,3 +95,31 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+
+
+## Paso a paso 
+
+# Paso a paso
+
+1. Montar el servidor y el cliente y hacer pruebas del ejemplo de socketIO
+2. Instalar dependencias para testing: --> npm install --save-dev @testing-library/react-native jest
+  2.5. Leerse la explicación de que es un mock
+  Un "mock" es una versión simulada o "fake" de un **objeto o función** reales que es usado durante el testing para imitar su comportamiento sin tener que confiar en su 
+  implementación real.
+
+  Los Mocks son útiles ya que ellos te permiten usar test en tu código sin necesitar interactuar con componentes externos, como bases de datos, servidores, APIs u otros 
+  módulos que podrían hacer tu test lento, inestable o dificil de reproducir.
+
+  En el caso de Socket.IO, el cual es una librería para comunicación en tiempo real, normalmente el cliente se conecta a un servidor y envía/recibe mensajes en tiempo real. Sin embargo, durante los test unitarios, **no queremos depender en un servidor real.**   
+
+  .... 
+
+3. Dentro de del directorio ./__mocks__ creamos un archivo socket.io-client.js.
+  const socket = {
+    on: jest.fn(),
+    emit: jest.fn(),
+    disconnect: jest.fn(),
+  }
+
+  export default jest.fn(() => socket);# jest-chatting-app-client
